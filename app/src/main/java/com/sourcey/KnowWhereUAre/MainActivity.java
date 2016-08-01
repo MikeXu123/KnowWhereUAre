@@ -1,4 +1,4 @@
-package com.sourcey.materiallogindemo;
+package com.sourcey.KnowWhereUAre;
 
 import android.content.Intent;
 import android.os.Bundle;
