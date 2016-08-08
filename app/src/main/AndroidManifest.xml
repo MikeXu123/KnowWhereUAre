@@ -10,7 +10,7 @@
         <activity
             android:name="com.sourcey.KnowWhereUAre.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.Dark">
+            android:theme="@style/AppTheme.Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

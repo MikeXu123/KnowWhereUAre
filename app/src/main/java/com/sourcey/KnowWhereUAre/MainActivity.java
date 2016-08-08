@@ -2,17 +2,19 @@ package com.sourcey.KnowWhereUAre;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private String[] tabTitleArray = {"北京","上海","天津","南京","新疆","西藏"};
-
-    TabLayout tabLayout;
+    private String[] mTitleArray = {"北京", "上海", "天津", "南京", "新疆", "西藏"};
+    private DrawerLayout mDrawerLayout;
+    private ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +25,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
 
-        tabLayout = (TabLayout)findViewById(R.id.tablayout);
-        for(i = 0;i < tabTitleArray.length;i ++){
-            tabLayout.addTab(tabLayout.newTab().setText(tabTitleArray[i]));
-        }
+        Toolbar mainToolBar = (Toolbar) findViewById(R.id.main_toolbar);
+        mainToolBar.setTitle("定位");
+        setSupportActionBar(mainToolBar);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout.setBackgroundColor(getResources().getColor(R.color.background));
 
     }
 
