@@ -25,4 +25,8 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'de.hdodenhof:circleimageview:1.3.0'
+    compile files('lib/AMap_2DMap_V2.9.0_20160525.jar')
+    compile files('lib/AMap_Search_V3.4.0_20160811.jar')
+    compile files('lib/AMap_Location_V2.4.1_20160414.jar')
+    compile files('lib/android-support-v4.jar')
 }

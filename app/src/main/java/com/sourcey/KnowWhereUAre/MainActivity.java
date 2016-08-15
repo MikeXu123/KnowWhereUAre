@@ -9,12 +9,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.amap.api.maps2d.MapView;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private String[] mTitleArray = {"北京", "上海", "天津", "南京", "新疆", "西藏"};
     private DrawerLayout mDrawerLayout;
     private ListView mListView;
+    MapView mMapView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +28,16 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
 
+        mMapView = (MapView) findViewById(R.id.map_view);
+        mMapView.onCreate(savedInstanceState);
+
         Toolbar mainToolBar = (Toolbar) findViewById(R.id.main_toolbar);
         mainToolBar.setTitle("定位");
         setSupportActionBar(mainToolBar);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.setBackgroundColor(getResources().getColor(R.color.background));
+
 
     }
 
@@ -55,4 +62,29 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+/*
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
+        mMapView.onDestroy();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //在activity执行onResume时执行mMapView.onResume ()，实现地图生命周期管理
+        mMapView.onResume();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //在activity执行onPause时执行mMapView.onPause ()，实现地图生命周期管理
+        mMapView.onPause();
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //在activity执行onSaveInstanceState时执行mMapView.onSaveInstanceState (outState)，实现地图生命周期管理
+        mMapView.onSaveInstanceState(outState);
+    }*/
 }
